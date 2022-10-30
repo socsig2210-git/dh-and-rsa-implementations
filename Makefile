@@ -13,4 +13,4 @@ rsa_assign_1.o: rsa_assign_1.c
 	gcc -c rsa_assign_1.c -g3
 
 clean:
-	rm -vf *.o *.txt dh_assign_1 rsa_assign_1
+	rm -rvf *.o *.key dh_assign_1 rsa_assign_1 $(filter-out plaintext.txt,$(wildcard *.txt))

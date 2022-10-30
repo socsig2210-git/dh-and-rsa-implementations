@@ -1,3 +1,6 @@
 .vscode
-.*key
-.*txt
+*.key
+*.txt
+*.o
+dh_assign_1
+rsa_assign_1
