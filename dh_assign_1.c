@@ -4,11 +4,9 @@
 #include <getopt.h>
 #include <gmp.h>
 
-
-void init_numbers(mpz_t private_key_a, mpz_t private_key_b, mpz_t public_key_A,
-    mpz_t public_key_B, mpz_t secret_key_A, mpz_t secret_key_B, mpz_t prime, mpz_t base);
-void clear_numbers(mpz_t private_key_a, mpz_t private_key_b, mpz_t public_key_A,
-    mpz_t public_key_B, mpz_t secret_key_A, mpz_t secret_key_B, mpz_t prime, mpz_t base);
+void print_description(void);
+void init_numbers(mpz_t, mpz_t, mpz_t, mpz_t, mpz_t, mpz_t, mpz_t, mpz_t);
+void clear_numbers(mpz_t, mpz_t, mpz_t, mpz_t, mpz_t, mpz_t, mpz_t, mpz_t);
 
 int main(int argc, char **argv)
 {   
@@ -41,7 +39,7 @@ int main(int argc, char **argv)
                     return -1;
                 }
                 
-                printf("Description of dh_assign tool\n");
+                print_description();
                 return 0;
             case ':':
                 printf("Err: Option needs a value\n, use -h for help");
@@ -147,4 +145,18 @@ void clear_numbers(mpz_t private_key_a, mpz_t private_key_b, mpz_t public_key_A,
     mpz_clear(secret_key_B);
     mpz_clear(prime);
     mpz_clear(base);
+}
+
+void print_description(void){
+    printf("Usage: ./dh_assign_1 [ARGS]\n");
+    printf("\nAn implementation of the Diffie-Hellman algorithm\n");
+    printf("\nThis tool, based on the 2 private keys and the 2 prime numbers given as input,\n");
+    printf("creates 2 public keys by implementing the algorithm. Both of the keys and their\n");
+    printf("common secret key are then stored in an output file\n");
+    printf("\nMandatory arguments [ARGS]:\n");
+    printf("  -a, private key a\n");
+    printf("  -b, private key b\n");
+    printf("  -g, prime number used as base\n");
+    printf("  -p, prime number uses as mod\n");
+    printf("  -o <file>, path to output file\n\n");
 }

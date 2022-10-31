@@ -12,5 +12,7 @@ dh_assign_1.o: dh_assign_1.c
 rsa_assign_1.o: rsa_assign_1.c
 	gcc -c rsa_assign_1.c -g3
 
+IGNORE:=plaintext.txt README.txt
+
 clean:
-	rm -rvf *.o *.key dh_assign_1 rsa_assign_1 $(filter-out plaintext.txt,$(wildcard *.txt))
+	rm -rvf *.o *.key dh_assign_1 rsa_assign_1 $(filter-out $(IGNORE),$(wildcard *.txt))

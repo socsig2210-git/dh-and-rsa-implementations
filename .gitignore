@@ -1,6 +1,7 @@
 .vscode
 *.key
 *.txt
+!README.txt
 *.o
 dh_assign_1
 rsa_assign_1
